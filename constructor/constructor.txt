@@ -1,0 +1,11 @@
+The issue arises because of the difference between a constructor and a method in Java.
+
+1. Constructor:
+A constructor in Java is a special method used to initialize objects.
+A constructor does not have a return type, not even void.
+Its name must match the class name exactly, including capitalization.
+
+2. Method:
+A method in Java performs actions or computations when called.
+A method can have a return type, including void if it returns nothing.
+
