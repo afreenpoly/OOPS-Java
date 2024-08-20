@@ -1,0 +1,26 @@
+1.what happens if we do not enter in a number?
+we encountered an input mismatch exception because when our scanner is looking for an integer
+we typed in a string so we need to make sure that the input type the data type matches
+
+2.if you use nextLine() after nextInt() or anything else that's not next line
+
+Using nextLine Method
+The nextLine method is used to read an entire line of text, including all characters up to and including the newline character (\n).
+When you type your input (e.g., your name) and press Enter, the nextLine method reads the entire line and then stops when it reaches the newline character.
+After calling nextLine, the scanner is empty, meaning it has consumed everything up to the newline.
+
+Using nextInt Method
+The nextInt method, on the other hand, only reads the numerical portion of the input and stops right before the newline character.
+For instance, if you type the number 18 and press Enter, nextInt will read just the 18 and leave the newline character in the input buffer.
+
+The Issue with Mixing Methods
+If you call nextLine after using nextInt, you might encounter unexpected behavior. The nextLine method will read the leftover newline character 
+from the previous nextInt call, and it will interpret this as the end of the input, returning an empty string.
+This happens because nextLine thinks it has reached the end of the input when it encounters the newline character left by nextInt.
+
+Example:
+You call nextInt and enter 18, pressing Enter.
+The scanner now contains the newline character (\n).
+If you then call nextLine, it immediately reads this leftover newline character and returns an empty string.
+
+To avoid this issue, you can call nextLine right after nextInt to consume the leftover newline character before moving on to the next input.

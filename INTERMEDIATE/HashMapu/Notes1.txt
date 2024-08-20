@@ -1,0 +1,39 @@
+-Hash Map:𝑂(1) for search
+-Compilers and Interpreters use this
+-String Searching: Commands like grep
+
+
+How hashmaps work?
+Consider an array and elements are being inserted into it 
+all these elements needs to go through hashcode() to be converted to integer format
+These integers are huge number which should be reduced to a size m 
+
+consider an array
+A=[ ,  ,  ,  ,  ,  ,  ]
+if afreen is being added , let hashCode(afreen)=2
+if navin is being added , let hashCode(navin)=5
+if jyothi is being added , let hashCode(jyothi)=7 
+then lets place each element in corresponding index
+A=[ ,afreen,  ,  ,navin,  ,jyothi]
+then when we ask for A.get("afreen"),java automatically converts into integer
+and gets the index of element and returns the element in constant time
+
+but hashCode() doesnt return single digit value,then we require hashing
+if afreen is being added , let hashCode(afreen)=2234827
+if navin is being added , let hashCode(navin)=5723485
+if jyothi is being added , let hashCode(jyothi)=7238746
+instead of huge array , we take modulo of index by 10 and place it there
+A=[ ,  ,  ,  ,navin,jyothi,afreen]
+but what if anitta is being added and let say hashCode(anitta)=2834986
+then its a collision both anitta and jyothi has 6 as index
+
+Two ways to solve:
+1.Chaining 
+using Linked List,but has some problems
+-Simple uniform hashing
+    -division method
+    -multiplication method
+    -universal hashing
+2.Open addressing
+One item per slot
+the size of the table must be greater than or equal to the total number of keys
